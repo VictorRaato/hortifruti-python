@@ -23,7 +23,15 @@ def homepage():
             header h1 {{ margin: 0; font-size: 2.3em; }}
             header p {{ margin: 5px 0 0 0; font-size: 1.1em; opacity: 0.9; }}
             .container {{ max-width: 1000px; margin: 30px auto; padding: 0 20px; text-align: center; }}
-            .grid-produtos {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }}
+            .grid-produtos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
+@media (min-width: 600px) { .grid-produtos { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .grid-produtos { grid-template-columns: repeat(4, 1fr); } }
+.card { background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eef2ee; }
+.card img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
+.card h3 { margin: 8px 0 3px 0; color: #2c3e50; font-size: 1em; }
+.preco { font-size: 1.1em; color: #27ae60; font-weight: bold; margin: 3px 0 10px 0; }
+.btn-whats { display: inline-block; width: 90%; padding: 8px 0; background-color: #25d366; color: white; text-decoration: none; font-weight: bold; font-size: 0.9em; border-radius: 6px; }
+
             .card {{ background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; border: 1px solid #eef2ee; }}
             .card:hover {{ transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }}
             .card img {{ width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }}
