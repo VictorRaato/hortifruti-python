@@ -2,11 +2,10 @@ from flask import Flask
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def homepage():
-    # IMPORTANTE: Mude o número abaixo para o SEU WhatsApp (Ex: 5583999999999)
-    meu_whats = "5581998029204"
+    # IMPORTANTE: Mude o número abaixo para o SEU WhatsApp real
+    meu_whats = "5500999999999"
     msg = "Olá! Gostaria de fazer um pedido de frutas e verduras frescas."
     link_final = f"https://wa.me{meu_whats}?text={msg.replace(' ', '+')}"
 
@@ -23,22 +22,19 @@ def homepage():
             header h1 {{ margin: 0; font-size: 2.3em; }}
             header p {{ margin: 5px 0 0 0; font-size: 1.1em; opacity: 0.9; }}
             .container {{ max-width: 1000px; margin: 30px auto; padding: 0 20px; text-align: center; }}
-            .grid-produtos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
-@media (min-width: 600px) { .grid-produtos { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 900px) { .grid-produtos { grid-template-columns: repeat(4, 1fr); } }
-.card { background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eef2ee; }
-.card img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
-.card h3 { margin: 8px 0 3px 0; color: #2c3e50; font-size: 1em; }
-.preco { font-size: 1.1em; color: #27ae60; font-weight: bold; margin: 3px 0 10px 0; }
-.btn-whats { display: inline-block; width: 90%; padding: 8px 0; background-color: #25d366; color: white; text-decoration: none; font-weight: bold; font-size: 0.9em; border-radius: 6px; }
-
-            .card {{ background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; border: 1px solid #eef2ee; }}
-            .card:hover {{ transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }}
-            .card img {{ width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }}
-            .card h3 {{ margin: 12px 0 5px 0; color: #2c3e50; font-size: 1.2em; }}
+            
+            /* Ajuste para 2 itens por linha no celular e mais colunas no PC */
+            .grid-produtos {{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }}
+            @media (min-width: 600px) {{ .grid-produtos {{ grid-template-columns: repeat(3, 1fr); }} }}
+            @media (min-width: 900px) {{ .grid-produtos {{ grid-template-columns: repeat(4, 1fr); }} }}
+            
+            .card {{ background: white; padding: 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eef2ee; }}
+            .card:hover {{ transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); transition: 0.3s; }}
+            .card img {{ width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }}
+            .card h3 {{ margin: 8px 0 3px 0; color: #2c3e50; font-size: 1em; }}
             .tag {{ background-color: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 20px; font-size: 0.85em; font-weight: bold; display: inline-block; margin-bottom: 10px; }}
-            .preco {{ font-size: 1.25em; color: #27ae60; font-weight: bold; margin: 5px 0 15px 0; }}
-            .btn-whats {{ display: inline-block; width: 85%; padding: 10px; background-color: #25d366; color: white; text-decoration: none; font-weight: bold; border-radius: 6px; transition: 0.2s; }}
+            .preco {{ font-size: 1.1em; color: #27ae60; font-weight: bold; margin: 3px 0 10px 0; }}
+            .btn-whats {{ display: inline-block; width: 90%; padding: 8px 0; background-color: #25d366; color: white; text-decoration: none; font-weight: bold; font-size: 0.9em; border-radius: 6px; }}
             .btn-whats:hover {{ background-color: #128c7e; }}
             .footer-fixo {{ position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px 0; box-shadow: 0 -4px 10px rgba(0,0,0,0.08); text-align: center; z-index: 100; }}
             .btn-pedir-geral {{ display: inline-block; padding: 12px 40px; background-color: #25d366; color: white; text-decoration: none; font-size: 1.2em; font-weight: bold; border-radius: 30px; box-shadow: 0 4px 10px rgba(37,211,102,0.3); }}
@@ -54,9 +50,9 @@ def homepage():
 
         <div class="container">
             <h2>Nossos Produtos da Semana</h2>
-
+            
             <div class="grid-produtos">
-
+                
                 <!-- Produto 1 -->
                 <div class="card">
                     <span class="tag">Fruta</span>
@@ -125,6 +121,9 @@ def homepage():
     </body>
     </html>
     """
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 
 if __name__ == "__main__":
