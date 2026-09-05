@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route("/")
 def homepage():
     # IMPORTANTE: Mude o número abaixo para o SEU WhatsApp real
-    meu_whats = "5500999999999"
+    meu_whats = "5581998029204"
     msg = "Olá! Gostaria de fazer um pedido de frutas e verduras frescas."
     link_final = f"https://wa.me{meu_whats}?text={msg.replace(' ', '+')}"
 
